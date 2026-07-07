@@ -10,9 +10,9 @@
   --neg: #ef4444;
   --pitch: #7fd858;
   --pitchline: #0a0a0a;
-  --shadow: 4px 4px 0 var(--line);
-  --shadow-sm: 3px 3px 0 var(--line);
-  --shadow-lg: 6px 6px 0 var(--line);
+  --shadow: 3px 3px 0 var(--line);
+  --shadow-sm: 2px 2px 0 var(--line);
+  --shadow-lg: 4px 4px 0 var(--line);
   --radius: 0px;
 }
 
@@ -22,7 +22,7 @@
 
 body {
   margin: 0;
-  font-family: "Arial Black", Arial, "Helvetica Neue", sans-serif;
+  font-family: "Space Mono", monospace;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.45;
@@ -30,7 +30,7 @@ body {
 
 header {
   padding: 28px 24px 0;
-  border-bottom: 4px solid var(--line);
+  border-bottom: 2px solid var(--line);
   background: var(--accent);
 }
 h1 {
@@ -39,7 +39,7 @@ h1 {
   font-weight: 900;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 .sub {
   margin: 8px 0 16px;
@@ -54,7 +54,7 @@ h1 {
 .tab {
   background: var(--card);
   color: var(--ink);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-bottom: 0;
   padding: 12px 20px;
   font-size: 14px;
@@ -80,7 +80,7 @@ section {
   padding: 24px;
 }
 .panel {
-  border-bottom: 4px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 
 .controls {
@@ -106,7 +106,7 @@ section {
   gap: 6px;
 }
 .sep {
-  width: 3px;
+  width: 1.5px;
   height: 26px;
   background: var(--line);
 }
@@ -114,7 +114,7 @@ section {
 select {
   background: var(--card);
   color: var(--ink);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 9px 12px;
   font-size: 14px;
@@ -126,7 +126,7 @@ select {
 button {
   background: var(--accent);
   color: var(--ink);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 9px 16px;
   font-size: 13px;
@@ -140,10 +140,10 @@ button {
 }
 button:hover {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--line);
+  box-shadow: 1px 1px 0 var(--line);
 }
 button:active {
-  transform: translate(3px, 3px);
+  transform: translate(2px, 2px);
   box-shadow: none;
 }
 button:disabled {
@@ -159,7 +159,7 @@ button:disabled {
 .seg {
   background: var(--card);
   color: var(--ink);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   padding: 7px 14px;
   font-size: 12px;
   border-radius: 0;
@@ -195,7 +195,7 @@ button:disabled {
   font-weight: 700;
 }
 .upload {
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 10px 16px;
   cursor: pointer;
@@ -208,7 +208,7 @@ button:disabled {
 }
 .upload:hover {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--line);
+  box-shadow: 1px 1px 0 var(--line);
 }
 
 .status {
@@ -228,7 +228,7 @@ button:disabled {
 }
 code {
   background: var(--card);
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
   padding: 1px 6px;
   border-radius: 0;
   font-size: 12px;
@@ -244,7 +244,7 @@ h2 {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   font-weight: 900;
-  border-bottom: 3px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
   padding-bottom: 6px;
 }
 .tag {
@@ -252,7 +252,7 @@ h2 {
   font-weight: 900;
   color: var(--ink);
   background: var(--accent);
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
   padding: 2px 8px;
   border-radius: 0;
   vertical-align: middle;
@@ -262,7 +262,7 @@ h2 {
 
 .tablewrap {
   overflow-x: auto;
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   box-shadow: var(--shadow);
   background: var(--card);
@@ -288,14 +288,14 @@ thead th {
   background: var(--accent);
   color: var(--ink);
   font-weight: 900;
-  border-bottom: 3px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
   position: sticky;
   top: 0;
   text-transform: uppercase;
   font-size: 11.5px;
 }
 tbody tr {
-  border-bottom: 2px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 tbody tr:last-child {
   border-bottom: 0;
@@ -344,7 +344,7 @@ tbody tr:hover {
 }
 .metricbar .m {
   background: var(--card);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 14px 16px;
   box-shadow: var(--shadow-sm);
@@ -369,7 +369,7 @@ tbody tr:hover {
 
 /* pitch */
 .pitchwrap {
-  border: 4px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 0;
   overflow: hidden;
   background: var(--pitch);
@@ -382,17 +382,17 @@ svg {
 }
 .pline {
   stroke: var(--pitchline);
-  stroke-width: 2.5;
+  stroke-width: 1.5;
   fill: none;
 }
 .shot {
   stroke: var(--line);
-  stroke-width: 2;
+  stroke-width: 1.5;
   cursor: pointer;
 }
 .shot:hover {
   stroke: var(--ink);
-  stroke-width: 3;
+  stroke-width: 2;
 }
 .legend {
   display: flex;
@@ -410,7 +410,7 @@ svg {
   border-radius: 50%;
   margin-right: 6px;
   vertical-align: -1px;
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
 }
 
 /* grid cells */
@@ -419,7 +419,7 @@ svg {
 }
 .cell:hover {
   stroke: var(--ink);
-  stroke-width: 3;
+  stroke-width: 2;
 }
 .cellval {
   fill: #0a0a0a;
@@ -437,17 +437,17 @@ svg {
 }
 .cell.start {
   stroke: #0a0a0a;
-  stroke-width: 4;
+  stroke-width: 2.5;
 }
 .cell.end {
   stroke: #1d4ed8;
-  stroke-width: 4;
+  stroke-width: 2.5;
 }
 
 .movecard {
   margin-top: 16px;
   background: var(--card);
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 16px 18px;
   font-size: 14px;
@@ -470,17 +470,17 @@ svg {
 .tcard {
   flex: 1;
   min-width: 260px;
-  border: 3px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 16px 18px;
   background: var(--card);
   box-shadow: var(--shadow);
 }
 .tcard.a {
-  border-top: 8px solid #1d4ed8;
+  border-top: 5px solid #1d4ed8;
 }
 .tcard.b {
-  border-top: 8px solid #f59e0b;
+  border-top: 5px solid #f59e0b;
 }
 .tname {
   font-weight: 900;
@@ -549,6 +549,6 @@ footer {
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
-  border-top: 4px solid var(--line);
+  border-top: 2px solid var(--line);
   margin-top: 20px;
 }
