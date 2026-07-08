@@ -323,6 +323,8 @@ tbody tr:hover {
   overflow: hidden;
   background: var(--pitch);
   box-shadow: var(--shadow-lg);
+  max-width: 880px;
+  margin: 0 auto;
 }
 svg {
   display: block;
@@ -371,13 +373,13 @@ svg {
   stroke-width: 2;
 }
 .cellval {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-anchor: middle;
   pointer-events: none;
 }
 .cellidx {
-  font-size: 9px;
+  font-size: 8.5px;
   font-weight: 700;
   text-anchor: middle;
   pointer-events: none;
@@ -504,6 +506,9 @@ svg {
   display: flex;
   flex-direction: column;
   padding: 28px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .sidebar-brand h1 {
@@ -556,8 +561,9 @@ svg {
 }
 
 .snav-icon {
-  font-size: 16px;
-  line-height: 1;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .main-content {

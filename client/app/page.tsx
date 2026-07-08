@@ -14,23 +14,44 @@ export default function Home() {
       <aside className="sidebar">
         <div className="sidebar-brand">
           <h1>Flow of Threat</h1>
-          <p className="sub">
-            xT &middot; PV &middot; VAEP
-          </p>
+          <p className="sub">xT &middot; PV &middot; VAEP</p>
         </div>
         <nav className="sidebar-nav">
           <button
             className={"snav-item" + (tab === "explorer" ? " active" : "")}
             onClick={() => setTab("explorer")}
           >
-            <span className="snav-icon">▦</span>
-            Threat Grid Explorer
+            <svg
+              className="snav-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="3" y="3" width="6" height="6" />
+              <rect x="11" y="3" width="6" height="6" />
+              <rect x="3" y="11" width="6" height="6" />
+              <rect x="11" y="11" width="6" height="6" />
+            </svg>
+            xT Grid
           </button>
           <button
             className={"snav-item" + (tab === "analyzer" ? " active" : "")}
             onClick={() => setTab("analyzer")}
           >
-            <span className="snav-icon">⚡</span>
+            <svg
+              className="snav-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M13 2.5L7 10.5H10.5L8.5 17.5L15 9H11.5L13 2.5Z" />
+            </svg>
             Match Analyzer
           </button>
         </nav>
