@@ -10,9 +10,9 @@
   --neg: #ef4444;
   --pitch: #b0e8a0;
   --pitchline: #777777;
-  --shadow: 3px 3px 0 var(--line);
-  --shadow-sm: 2px 2px 0 var(--line);
-  --shadow-lg: 4px 4px 0 var(--line);
+  --shadow: none;
+  --shadow-sm: none;
+  --shadow-lg: none;
   --radius: 0px;
 }
 
@@ -28,50 +28,18 @@ body {
   line-height: 1.45;
 }
 
-header {
-  padding: 28px 24px 0;
-  border-bottom: 2px solid var(--line);
-  background: var(--accent);
-}
 h1 {
   margin: 0;
   font-size: 34px;
   font-weight: 900;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 .sub {
   margin: 8px 0 16px;
   color: var(--ink);
   font-size: 14px;
   font-weight: 700;
-}
-.tabs {
-  display: flex;
-  gap: 10px;
-}
-.tab {
-  background: var(--card);
-  color: var(--ink);
-  border: 1.5px solid var(--line);
-  border-bottom: 0;
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 900;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 0;
-  box-shadow: var(--shadow-sm);
-  transform: translateY(4px);
-}
-.tab.active {
-  background: var(--accent2);
-  transform: translateY(0);
-  box-shadow: none;
-}
-.tab:hover:not(.active) {
-  transform: translate(1px, 3px);
 }
 
 section {
@@ -133,24 +101,13 @@ button {
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.08s ease,
-    box-shadow 0.08s ease;
-}
-button:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--line);
 }
 button:active {
-  transform: translate(2px, 2px);
-  box-shadow: none;
+  transform: translate(1px, 1px);
 }
 button:disabled {
   opacity: 0.45;
   cursor: default;
-  transform: none;
-  box-shadow: var(--shadow-sm);
 }
 
 .ghost {
@@ -165,12 +122,9 @@ button:disabled {
   border-radius: 0;
   font-weight: 900;
   text-transform: uppercase;
-  box-shadow: var(--shadow-sm);
 }
 .seg.active {
   background: var(--accent2);
-  box-shadow: none;
-  transform: translate(2px, 2px);
 }
 
 .chk {
@@ -204,11 +158,6 @@ button:disabled {
   font-weight: 900;
   text-transform: uppercase;
   background: var(--accent2);
-  box-shadow: var(--shadow-sm);
-}
-.upload:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--line);
 }
 
 .status {
@@ -324,12 +273,12 @@ tbody tr:hover {
 
 .grid2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 24px;
 }
 @media (max-width: 820px) {
   .grid2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   select {
     min-width: 200px;
@@ -539,6 +488,87 @@ svg {
 }
 .threatctl {
   gap: 10px 20px;
+}
+
+/* sidebar layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--card);
+  border-right: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px;
+}
+
+.sidebar-brand h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.sidebar-brand .sub {
+  margin: 6px 0 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.snav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--muted);
+  transition:
+    color 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease;
+  text-align: left;
+  border-radius: 0;
+}
+.snav-item:hover {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--bg);
+}
+.snav-item.active {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--accent);
+}
+.snav-item:active {
+  transform: translate(1px, 1px);
+}
+
+.snav-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.main-content section {
+  max-width: 100%;
+  padding: 20px 24px;
 }
 
 footer {

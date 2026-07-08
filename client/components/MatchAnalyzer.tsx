@@ -436,23 +436,22 @@ export default function MatchAnalyzer() {
             <span>shots = dots (size = xG, filled = goal)</span>
           </div>
 
-          <div className="grid2">
-            <div>
-              <h2>Player xT rankings</h2>
-              <div className="tablewrap tall">
-                <PlayerTable
-                  rows={data.by_xt}
-                  cols={["xt", "pv", "vaep_per_action", "vaep_state_delta"]}
-                  headers={["xT", "PV", "VAEP/act", "VAEP state"]}
-                  dps={[4, 2, 2, 2]}
-                />
-              </div>
+          <div>
+            <h2>Player xT rankings</h2>
+            <div className="tablewrap tall">
+              <PlayerTable
+                rows={data.by_xt}
+                cols={["xt", "pv", "vaep_per_action", "vaep_state_delta"]}
+                headers={["xT", "PV", "VAEP/act", "VAEP state"]}
+                dps={[4, 2, 2, 2]}
+              />
             </div>
-            <div>
-              <h2>Top events by |xT|</h2>
-              <div className="tablewrap tall">
-                <TopEventsTable rows={data.top_events} />
-              </div>
+          </div>
+
+          <div>
+            <h2>Top events by |xT|</h2>
+            <div className="tablewrap tall">
+              <TopEventsTable rows={data.top_events} />
             </div>
           </div>
 
