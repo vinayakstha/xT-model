@@ -15,7 +15,7 @@ export default function Home() {
       <aside className={"sidebar" + (collapsed ? " collapsed" : "")}>
         <div className="sidebar-inner">
           <div className="sidebar-brand">
-            <h1>Flow of Threat</h1>
+            <h1>xT-ENGINE</h1>
             <button
               className="sidebar-toggle"
               onClick={() => setCollapsed(!collapsed)}

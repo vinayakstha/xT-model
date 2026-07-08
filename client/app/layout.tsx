@@ -7,7 +7,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata = {
-  title: "Flow of Threat — xT / PV / VAEP",
+  title: "xT-Engine — xT / PV / VAEP",
   description: "xT, PV, VAEP threat analysis dashboard",
 };
 

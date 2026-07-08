@@ -4,7 +4,7 @@
   --ink: #0a0a0a;
   --muted: #4a4a4a;
   --line: #0a0a0a;
-  --accent: #ffde59;
+  --accent: #b3d9ff;
   --accent2: #6ee7ff;
   --pos: #16a34a;
   --neg: #ef4444;
@@ -324,7 +324,7 @@ tbody tr:hover {
   background: var(--pitch);
   box-shadow: var(--shadow-lg);
   max-width: 880px;
-  margin: 0 auto;
+  margin: 12px auto 0;
   cursor:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='white' stroke-width='2'/%3E%3Cline x1='5' y1='16' x2='27' y2='16' stroke='white' stroke-width='2'/%3E%3C/svg%3E")
       16 16,
@@ -430,7 +430,7 @@ svg {
   border-top: 5px solid #1d4ed8;
 }
 .tcard.b {
-  border-top: 5px solid #f59e0b;
+  border-top: 5px solid #ef4444;
 }
 .tname {
   font-weight: 900;
@@ -550,6 +550,7 @@ svg {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-transform: none;
 }
 .sidebar .sub {
   margin: 6px 0 24px;
