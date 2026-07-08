@@ -325,6 +325,10 @@ tbody tr:hover {
   box-shadow: var(--shadow-lg);
   max-width: 880px;
   margin: 0 auto;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='white' stroke-width='2'/%3E%3Cline x1='5' y1='16' x2='27' y2='16' stroke='white' stroke-width='2'/%3E%3C/svg%3E")
+      16 16,
+    crosshair;
 }
 svg {
   display: block;
@@ -339,7 +343,6 @@ svg {
 .shot {
   stroke: var(--line);
   stroke-width: 1.5;
-  cursor: pointer;
 }
 .shot:hover {
   stroke: var(--ink);
@@ -365,9 +368,6 @@ svg {
 }
 
 /* grid cells */
-.cell {
-  cursor: pointer;
-}
 .cell:hover {
   stroke: var(--ink);
   stroke-width: 2;
@@ -509,13 +509,49 @@ svg {
   position: sticky;
   top: 0;
   height: 100vh;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 64px;
+  padding: 28px 12px;
+}
+.sidebar.collapsed .snav-item {
+  justify-content: center;
+  gap: 0;
+  padding: 10px 0;
+}
+.sidebar.collapsed .sidebar-brand {
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.sidebar.collapsed .sidebar-brand h1 {
+  display: none;
 }
 
+.sidebar-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
 .sidebar-brand h1 {
   font-size: 22px;
   margin: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.sidebar-brand .sub {
+.sidebar .sub {
   margin: 6px 0 24px;
   font-size: 12px;
   color: var(--muted);
@@ -545,6 +581,7 @@ svg {
     background 0.12s ease;
   text-align: left;
   border-radius: 0;
+  white-space: nowrap;
 }
 .snav-item:hover {
   color: var(--ink);
@@ -564,6 +601,28 @@ svg {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+.sidebar-toggle:hover {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--bg);
+}
+.sidebar-toggle svg {
+  width: 16px;
+  height: 16px;
 }
 
 .main-content {

@@ -111,7 +111,7 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                 className={"seg" + (grid === g ? " active" : "")}
                 onClick={() => setGrid(g)}
               >
-                {g.toUpperCase()}
+                {g === "xt" ? <><small>x</small>T</> : g === "xg" ? <><small>x</small>G</> : "PV"}
               </button>
             ))}
           </span>
@@ -180,7 +180,7 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
         <p className="hint">
           Each cell is the value of being in that zone.{" "}
           <b>Click a cell to set the start</b>, then a second cell for the end
-          &mdash; you get the move's xT (end &minus; start) and the model PV of
+          &mdash; you get the move's <small>x</small>T (end &minus; start) and the model PV of
           that exact action.
         </p>
       </section>
@@ -315,12 +315,11 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                               <circle
                                 cx={ex}
                                 cy={ey}
-                                r={8}
-                                fill="none"
-                                stroke="#3b82f6"
-                                strokeWidth={3}
+                                r={7}
+                                fill="#ffffff"
+                                stroke="#2563eb"
+                                strokeWidth={2}
                               />
-                              <circle cx={ex} cy={ey} r={3.5} fill="#ffffff" />
                               <text
                                 x={ex}
                                 y={ey - 13}
@@ -338,7 +337,7 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                         cx={sx}
                         cy={sy}
                         r={7}
-                        fill="#3b82f6"
+                        fill="#2563eb"
                         stroke="#ffffff"
                         strokeWidth={2}
                       />
@@ -361,7 +360,7 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
         </div>
 
         <div className="movecard">
-          {!start && "xT: click the pitch to begin."}
+          {!start && <><small>x</small>T: click the pitch to begin.</>}
           {start && !end && zones && (
             <>
               Start zone{" "}
@@ -375,7 +374,7 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
           {start && end && move && (
             <>
               <b>{type}</b> from ({start.join(",")}) &rarr; ({end.join(",")}),{" "}
-              {success ? "success" : "failure"} &nbsp;|&nbsp; zone xT = end
+              {success ? "success" : "failure"} &nbsp;|&nbsp; zone <small>x</small>T = end
               &minus; start = {(move.end_zone_xt * 100).toFixed(2)}% &minus;{" "}
               {(move.start_zone_xt * 100).toFixed(2)}% ={" "}
               <b>{sign(move.zone_based_xt * 100)}%</b>

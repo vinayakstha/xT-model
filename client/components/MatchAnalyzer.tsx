@@ -84,7 +84,7 @@ function TopEventsTable({ rows }: { rows: TopEventRow[] }) {
           <th>Player</th>
           <th>Type</th>
           <th>Move</th>
-          <th>xT</th>
+          <th><small>x</small>T</th>
           <th>PV</th>
           <th>VAEP</th>
         </tr>
@@ -217,7 +217,7 @@ export default function MatchAnalyzer() {
                     <div className="tmetrics">
                       <span>
                         <b>{t.xt.toFixed(2)}</b>
-                        <em>xT</em>
+                        <em><small>x</small>T</em>
                       </span>
                       <span>
                         <b>{t.pv.toFixed(2)}</b>
@@ -433,11 +433,11 @@ export default function MatchAnalyzer() {
               <span className="sw" style={{ background: KIND_COLOR.zero }} />
               &asymp; 0
             </span>
-            <span>shots = dots (size = xG, filled = goal)</span>
+            <span>shots = dots (size = <small>x</small>G, filled = goal)</span>
           </div>
 
           <div>
-            <h2>Player xT rankings</h2>
+            <h2>Player <small>x</small>T rankings</h2>
             <div className="tablewrap tall">
               <PlayerTable
                 rows={data.by_xt}
@@ -449,7 +449,7 @@ export default function MatchAnalyzer() {
           </div>
 
           <div>
-            <h2>Top events by |xT|</h2>
+            <h2>Top events by |<small>x</small>T|</h2>
             <div className="tablewrap tall">
               <TopEventsTable rows={data.top_events} />
             </div>
