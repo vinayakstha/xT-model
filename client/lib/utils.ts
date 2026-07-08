@@ -12,10 +12,17 @@ export const METRICS: [string, string][] = [
   ["pv_concede", "PV concede"],
 ];
 
-// green -> yellow gradient by value / max
+// green -> yellow -> red gradient by value / max
 export function heat(t: number): string {
   t = Math.max(0, Math.min(1, t));
-  return `hsl(${140 - 80 * t}, 52%, ${26 + 20 * t}%)`;
+  return `hsl(${140 - 140 * t}, 65%, ${55 - 10 * t}%)`;
+}
+
+// black text on light cells, white on dark cells
+export function heatTextColor(t: number): string {
+  t = Math.max(0, Math.min(1, t));
+  // lightness = 55 - 10*t; switch to white when lightness < 50 (t > 0.5)
+  return t > 0.5 ? "#ffffff" : "#0a0a0a";
 }
 
 export function fmtNum(v: number, dp = 2): { text: string; cls: string } {

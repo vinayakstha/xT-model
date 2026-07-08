@@ -8,8 +8,8 @@
   --accent2: #6ee7ff;
   --pos: #16a34a;
   --neg: #ef4444;
-  --pitch: #7fd858;
-  --pitchline: #0a0a0a;
+  --pitch: #b0e8a0;
+  --pitchline: #777777;
   --shadow: 3px 3px 0 var(--line);
   --shadow-sm: 2px 2px 0 var(--line);
   --shadow-lg: 4px 4px 0 var(--line);
@@ -422,18 +422,17 @@ svg {
   stroke-width: 2;
 }
 .cellval {
-  fill: #0a0a0a;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 600;
   text-anchor: middle;
   pointer-events: none;
 }
 .cellidx {
-  fill: rgba(10, 10, 10, 0.65);
   font-size: 9px;
   font-weight: 700;
   text-anchor: middle;
   pointer-events: none;
+  opacity: 0.65;
 }
 .cell.start {
   stroke: #0a0a0a;

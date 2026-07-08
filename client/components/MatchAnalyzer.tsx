@@ -10,6 +10,7 @@ import {
   TEAM_COLORS,
   METRICS,
   heat,
+  heatTextColor,
   fmtNum,
   arrowKind,
   KIND_COLOR,
@@ -340,31 +341,41 @@ export default function MatchAnalyzer() {
 
               {grid &&
                 Array.from({ length: 12 }).map((_, zx) =>
-                  Array.from({ length: 8 }).map((_, zy) => (
-                    <g key={`${zx}-${zy}`}>
-                      <rect
-                        x={zx * cw + 0.5}
-                        y={zy * ch + 0.5}
-                        width={cw - 1}
-                        height={ch - 1}
-                        fill={heat(grid.z[zx][zy] / grid.max)}
-                        fillOpacity={0.5}
-                        stroke="rgba(0,0,0,0.45)"
-                        strokeWidth={1}
-                      />
-                      <text
-                        x={zx * cw + cw / 2}
-                        y={zy * ch + ch / 2 + 2.5}
-                        textAnchor="middle"
-                        fill="rgba(255,255,255,0.9)"
-                        fontSize={7.5}
-                        fontWeight={700}
-                        pointerEvents="none"
-                      >
-                        {(grid.z[zx][zy] * 100).toFixed(2)}%
-                      </text>
-                    </g>
-                  )),
+                  Array.from({ length: 8 }).map((_, zy) => {
+                    const v = grid.z[zx][zy];
+                    const x = zx * cw,
+                      y = zy * ch;
+                    return (
+                      <g key={`${zx}-${zy}`}>
+                        <rect
+                          x={x + 0.5}
+                          y={y + 0.5}
+                          width={cw - 1}
+                          height={ch - 1}
+                          fill={heat(v / grid.max)}
+                          className="cell"
+                          stroke="rgba(0,0,0,0.25)"
+                          strokeWidth={1}
+                        />
+                        <text
+                          x={x + cw / 2}
+                          y={y + ch / 2 + 1}
+                          className="cellval"
+                          fill={heatTextColor(v / grid.max)}
+                        >
+                          {(v * 100).toFixed(2)}%
+                        </text>
+                        <text
+                          x={x + cw / 2}
+                          y={y + ch / 2 + 14}
+                          className="cellidx"
+                          fill={heatTextColor(v / grid.max)}
+                        >
+                          ({zx},{zy})
+                        </text>
+                      </g>
+                    );
+                  }),
                 )}
 
               <PitchMarkings />
