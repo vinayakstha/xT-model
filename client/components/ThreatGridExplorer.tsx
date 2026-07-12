@@ -282,18 +282,27 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                                 (() => {
                                   const mx = (sx + ex) / 2,
                                     my = (sy + ey) / 2;
-                                  const txt =
-                                    "PV: " +
-                                    (move.model_pv * 100).toFixed(2) +
+                                  const xtPct = move.zone_based_xt * 100;
+                                  const pvPct = move.model_pv * 100;
+                                  const txt1 =
+                                    "xT: " +
+                                    (xtPct >= 0 ? "+" : "") +
+                                    xtPct.toFixed(2) +
                                     "%";
-                                  const tw = txt.length * 6.2 + 12;
+                                  const txt2 =
+                                    "PV: " +
+                                    pvPct.toFixed(2) +
+                                    "%";
+                                  const tw =
+                                    Math.max(txt1.length, txt2.length) * 6.2 +
+                                    14;
                                   return (
                                     <>
                                       <rect
                                         x={mx - tw / 2}
-                                        y={my - 10}
+                                        y={my - 15}
                                         width={tw}
-                                        height={17}
+                                        height={30}
                                         rx={4}
                                         fill="#0b1220"
                                         fillOpacity={0.92}
@@ -301,13 +310,23 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                                       />
                                       <text
                                         x={mx}
-                                        y={my + 2.5}
+                                        y={my - 4}
                                         textAnchor="middle"
                                         fill="#34d399"
                                         fontSize={10.5}
                                         fontWeight={700}
                                       >
-                                        {txt}
+                                        {txt1}
+                                      </text>
+                                      <text
+                                        x={mx}
+                                        y={my + 11}
+                                        textAnchor="middle"
+                                        fill="#34d399"
+                                        fontSize={10.5}
+                                        fontWeight={700}
+                                      >
+                                        {txt2}
                                       </text>
                                     </>
                                   );
