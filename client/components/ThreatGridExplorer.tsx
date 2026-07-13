@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import PitchMarkings from "./Pitch";
-import { W, H, heat, heatTextColor, zoneCenter } from "@/lib/utils";
+import { W, H, heat, isDarkCell, zoneCenter } from "@/lib/utils";
 import type { GridMode, Period, EventType, MoveResult } from "@/lib/types";
 
 export default function ThreatGridExplorer({ active }: { active: boolean }) {
@@ -259,16 +259,14 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                       <text
                         x={x + cw / 2}
                         y={y + ch / 2 + 1}
-                        className="cellval"
-                        fill={heatTextColor(v / maxVal)}
+                        className={"cellval" + (isDarkCell(v / maxVal) ? " white" : "")}
                       >
                         {(v * 100).toFixed(2)}%
                       </text>
                       <text
                         x={x + cw / 2}
                         y={y + ch / 2 + 14}
-                        className="cellidx"
-                        fill={heatTextColor(v / maxVal)}
+                        className={"cellidx" + (isDarkCell(v / maxVal) ? " white" : "")}
                       >
                         ({zx},{zy})
                       </text>

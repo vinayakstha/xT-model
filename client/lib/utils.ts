@@ -18,11 +18,11 @@ export function heat(t: number): string {
   return `hsl(${140 - 140 * t}, 65%, ${55 - 10 * t}%)`;
 }
 
-// black text on light cells, white on dark cells
-export function heatTextColor(t: number): string {
+// true when cell background is dark enough to need white text
+export function isDarkCell(t: number): boolean {
   t = Math.max(0, Math.min(1, t));
   // lightness = 55 - 10*t; switch to white when lightness < 50 (t > 0.5)
-  return t > 0.5 ? "#ffffff" : "#0a0a0a";
+  return t > 0.5;
 }
 
 export function fmtNum(v: number, dp = 2): { text: string; cls: string } {

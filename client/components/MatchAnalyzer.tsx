@@ -10,7 +10,7 @@ import {
   TEAM_COLORS,
   METRICS,
   heat,
-  heatTextColor,
+  isDarkCell,
   fmtNum,
   arrowKind,
   KIND_COLOR,
@@ -360,16 +360,14 @@ export default function MatchAnalyzer() {
                         <text
                           x={x + cw / 2}
                           y={y + ch / 2 + 1}
-                          className="cellval"
-                          fill={heatTextColor(v / grid.max)}
+                          className={"cellval" + (isDarkCell(v / grid.max) ? " white" : "")}
                         >
                           {(v * 100).toFixed(2)}%
                         </text>
                         <text
                           x={x + cw / 2}
                           y={y + ch / 2 + 14}
-                          className="cellidx"
-                          fill={heatTextColor(v / grid.max)}
+                          className={"cellidx" + (isDarkCell(v / grid.max) ? " white" : "")}
                         >
                           ({zx},{zy})
                         </text>

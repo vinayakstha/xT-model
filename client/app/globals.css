@@ -10,6 +10,27 @@
   --neg: #ef4444;
   --pitch: #b0e8a0;
   --pitchline: #777777;
+  --pitch-text: #333333;
+  --shadow: none;
+  --shadow-sm: none;
+  --shadow-lg: none;
+  --radius: 0px;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #000000;
+  --card: #111111;
+  --ink: #f0f0f0;
+  --muted: #888888;
+  --line: #444444;
+  --accent: #1a3a6a;
+  --accent2: #0f5e4a;
+  --pos: #34d399;
+  --neg: #f87171;
+  --pitch: #052e16;
+  --pitchline: #555555;
+  --pitch-text: #555555;
   --shadow: none;
   --shadow-sm: none;
   --shadow-lg: none;
@@ -366,6 +387,10 @@ svg {
   font-weight: 600;
   text-anchor: middle;
   pointer-events: none;
+  fill: var(--pitch-text);
+}
+.cellval.white {
+  fill: #ffffff;
 }
 .cellidx {
   font-size: 8.5px;
@@ -373,6 +398,10 @@ svg {
   text-anchor: middle;
   pointer-events: none;
   opacity: 0.65;
+  fill: var(--pitch-text);
+}
+.cellidx.white {
+  fill: #ffffff;
 }
 .cell.start {
   stroke: #0a0a0a;
@@ -572,6 +601,18 @@ svg {
   width: 17px;
   height: 17px;
   flex-shrink: 0;
+}
+
+.navbar-sep {
+  width: 1.5px;
+  height: 22px;
+  background: var(--line);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.navbar-btn.theme-btn {
+  padding: 7px 9px;
 }
 
 .main-content {
