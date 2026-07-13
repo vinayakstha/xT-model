@@ -252,8 +252,6 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                           (isStart ? " start" : "") +
                           (isEnd ? " end" : "")
                         }
-                        stroke="rgba(0,0,0,0.25)"
-                        strokeWidth={1}
                         onClick={() => clickZone(zx, zy)}
                       />
                       <text

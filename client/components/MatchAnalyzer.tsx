@@ -354,8 +354,6 @@ export default function MatchAnalyzer() {
                           height={ch - 1}
                           fill={heat(v / grid.max)}
                           className="cell"
-                          stroke="rgba(0,0,0,0.25)"
-                          strokeWidth={1}
                         />
                         <text
                           x={x + cw / 2}

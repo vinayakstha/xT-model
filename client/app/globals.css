@@ -9,8 +9,9 @@
   --pos: #16a34a;
   --neg: #ef4444;
   --pitch: #b0e8a0;
-  --pitchline: #777777;
+  --pitchline: #555555;
   --pitch-text: #333333;
+  --cell-line: rgba(153,153,153,0.35);
   --shadow: none;
   --shadow-sm: none;
   --shadow-lg: none;
@@ -28,9 +29,10 @@
   --accent2: #0f5e4a;
   --pos: #34d399;
   --neg: #f87171;
-  --pitch: #052e16;
+  --pitch: #b0e8a0;
   --pitchline: #555555;
-  --pitch-text: #555555;
+  --pitch-text: #333333;
+  --cell-line: rgba(153,153,153,0.35);
   --shadow: none;
   --shadow-sm: none;
   --shadow-lg: none;
@@ -378,6 +380,10 @@ svg {
 }
 
 /* grid cells */
+.cell {
+  stroke: var(--cell-line);
+  stroke-width: 1;
+}
 .cell:hover {
   stroke: var(--ink);
   stroke-width: 2;
