@@ -98,6 +98,8 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
     ch = H / 8;
 
   const sign = (x: number) => (x >= 0 ? "+" : "") + x.toFixed(4);
+  const moveClass = (v: number) =>
+    v >= 0.0001 ? " pos" : v <= -0.0001 ? " neg" : "";
 
   return (
     <div>
@@ -186,6 +188,47 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
       </section>
 
       <section>
+        {/* metric boxes — xT, PV, VAEP */}
+        <div className="metricbar">
+          <div className="m">
+            <div className="k"><small>x</small>T</div>
+            <div className={"v" + (move ? moveClass(move.zone_based_xt) : "")}
+            >
+              {move
+                ? `${move.zone_based_xt >= 0 ? "+" : ""}${(move.zone_based_xt * 100).toFixed(2)}%`
+                : "—"}
+            </div>
+            <div className="r">
+              {move
+                ? `${(move.start_zone_xt * 100).toFixed(2)}% → ${(move.end_zone_xt * 100).toFixed(2)}%`
+                : "zone end − start"}
+            </div>
+          </div>
+          <div className="m">
+            <div className="k">PV</div>
+            <div className="v">
+              {move
+                ? `${(move.model_pv * 100).toFixed(2)}%`
+                : "—"}
+            </div>
+            <div className="r">
+              {move
+                ? `concede ${(move.pv_concede * 100).toFixed(2)}%`
+                : "model prediction"}
+            </div>
+          </div>
+          <div className="m">
+            <div className="k">VAEP</div>
+            <div className={"v" + (move ? moveClass(move.vaep_per_action) : "")}
+            >
+              {move
+                ? `${move.vaep_per_action >= 0 ? "+" : ""}${(move.vaep_per_action * 100).toFixed(2)}%`
+                : "—"}
+            </div>
+            <div className="r">per action (PV − concede)</div>
+          </div>
+        </div>
+
         <div className="pitchwrap">
           <svg viewBox={`0 0 ${W} ${H}`}>
             {zones &&
