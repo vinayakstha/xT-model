@@ -108,6 +108,7 @@ select {
 }
 
 button {
+  font-family: inherit;
   background: var(--accent);
   color: var(--ink);
   border: 1.5px solid var(--line);
@@ -130,6 +131,7 @@ button:disabled {
   background: var(--card);
 }
 .seg {
+  font-family: inherit;
   background: var(--card);
   color: var(--ink);
   border: 1.5px solid var(--line);
@@ -165,6 +167,7 @@ button:disabled {
   font-weight: 700;
 }
 .upload {
+  font-family: inherit;
   border: 1.5px solid var(--line);
   border-radius: 0;
   padding: 10px 16px;
@@ -571,6 +574,7 @@ svg {
 }
 
 .navbar-btn {
+  font-family: inherit;
   display: flex;
   align-items: center;
   gap: 7px;
