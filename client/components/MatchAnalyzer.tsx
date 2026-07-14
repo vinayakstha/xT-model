@@ -8,7 +8,6 @@ import {
   SX,
   SY,
   TEAM_COLORS,
-  METRICS,
   heat,
   isDarkCell,
   fmtNum,
@@ -437,9 +436,9 @@ export default function MatchAnalyzer() {
             <div className="tablewrap tall">
               <PlayerTable
                 rows={data.by_xt}
-                cols={["xt", "pv", "vaep_per_action", "vaep_state_delta"]}
-                headers={["xT", "PV", "VAEP/act", "VAEP state"]}
-                dps={[4, 2, 2, 2]}
+                cols={["xt", "pv", "vaep_per_action"]}
+                headers={["xT", "PV", "VAEP"]}
+                dps={[4, 2, 2]}
               />
             </div>
           </div>
@@ -469,11 +468,6 @@ export default function MatchAnalyzer() {
                 data.distributions.vaep_per_action[0].toFixed(5),
                 `max ${data.distributions.vaep_per_action[1].toFixed(4)}`,
               ],
-              [
-                "VAEP state mean",
-                data.distributions.vaep_state_delta[0].toFixed(5),
-                `max ${data.distributions.vaep_state_delta[1].toFixed(4)}`,
-              ],
             ].map(([k, v, r]) => (
               <div className="m" key={k}>
                 <div className="k">{k}</div>
@@ -483,82 +477,7 @@ export default function MatchAnalyzer() {
             ))}
           </div>
 
-          <h2>Team totals</h2>
-          <div className="tablewrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Team</th>
-                  {METRICS.map(([, l]) => (
-                    <th key={l}>{l}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {data.teams.map((t) => (
-                  <tr key={t.team}>
-                    <td>{t.team}</td>
-                    {METRICS.map(([c]) => (
-                      <td key={c}>
-                        <NumCell v={t[c as MetricKey]} />
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="note">
-            {data.margin ? (
-              <>
-                Margin ({data.margin.a} &minus; {data.margin.b}):{" "}
-                {METRICS.map(([c, l]) => (
-                  <span key={c}>
-                    {l} <NumCell v={data.margin![c as MetricKey]} />{" "}
-                    &middot;{" "}
-                  </span>
-                ))}
-              </>
-            ) : (
-              ""
-            )}
-          </p>
 
-          <div className="grid2">
-            <div>
-              <h2>
-                The goalkeeper / CB paradox{" "}
-                <span className="tag">the flip</span>
-              </h2>
-              <div className="tablewrap">
-                <PlayerTable
-                  rows={data.bottom_per_action.slice(0, 6)}
-                  cols={["vaep_per_action", "vaep_state_delta", "pv_concede"]}
-                  headers={["VAEP/act", "VAEP state", "PV concede"]}
-                  dps={[2, 2, 2]}
-                />
-              </div>
-              <p className="note">
-                Bottom of per-action VAEP is keepers &amp; centre-backs
-                (structural end-coordinate concede bias). Canonical{" "}
-                <b>state-delta</b> credits their recoveries &mdash; watch the
-                sign flip.
-              </p>
-            </div>
-            <div>
-              <h2>
-                Top 5 by VAEP <span className="tag">state-delta</span>
-              </h2>
-              <div className="tablewrap">
-                <PlayerTable
-                  rows={data.top_state.slice(0, 5)}
-                  cols={["vaep_state_delta", "vaep_per_action"]}
-                  headers={["VAEP state", "VAEP/act"]}
-                  dps={[2, 2]}
-                />
-              </div>
-            </div>
-          </div>
         </section>
       )}
     </div>
