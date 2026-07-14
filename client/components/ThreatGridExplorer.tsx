@@ -338,13 +338,13 @@ export default function ThreatGridExplorer({ active }: { active: boolean }) {
                                         rx={4}
                                         fill="#0b1220"
                                         fillOpacity={0.92}
-                                        stroke="#34d399"
-                                      />
-                                      <text
-                                        x={mx}
-                                        y={my + 4}
-                                        textAnchor="middle"
-                                        fill="#34d399"
+                              stroke={xtPct < 0 ? "var(--neg)" : "#34d399"}
+                            />
+                            <text
+                              x={mx}
+                              y={my + 4}
+                              textAnchor="middle"
+                              fill={xtPct < 0 ? "var(--neg)" : "#34d399"}
                                         fontSize={10.5}
                                         fontWeight={700}
                                       >

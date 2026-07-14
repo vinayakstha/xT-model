@@ -446,7 +446,7 @@ export default function MatchAnalyzer() {
           <div>
             <h2>Top events by |<small>x</small>T|</h2>
             <div className="tablewrap tall">
-              <TopEventsTable rows={data.top_events} />
+              <TopEventsTable rows={data.top_events.slice(0, 10)} />
             </div>
           </div>
 
